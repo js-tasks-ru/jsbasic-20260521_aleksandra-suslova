@@ -17,10 +17,10 @@ module.exports = function(config) {
       {
         pattern: '{0,1,2,3,4,5}-module/*task/*.js',
       },
-     // {
-      //  pattern: '{6,7,8,9}-module/*task/*.js',
-       // type: 'module',
-      //},
+      {
+        pattern: '{6,7,8,9}-module/*task/*.js',
+        type: 'module',
+      },
       {
         pattern: 'assets/lib/*.js',
         type: 'module',
@@ -63,37 +63,17 @@ module.exports = function(config) {
     autoWatch: true,
 
 
-        // start these browsers
-        browsers: ['Chrome'],
+    // start these browsers
+    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+    browsers: ['ChromeHeadless'],
 
-    customLaunchers: {
-      ChromeHeadlessNoSandbox: {
-        base: 'ChromeHeadless',
-        flags: [
-          '--no-sandbox',
-          '--disable-gpu',
-          '--disable-dev-shm-usage',
-          '--disable-setuid-sandbox',
-          '--disable-extensions',
-          '--disable-background-networking',
-          '--disable-background-timer-throttling',
-          '--disable-renderer-backgrounding',
-          '--disable-features=Translate,OptimizationHints,AudioServiceOutOfProcess',
-          '--disable-web-security',
-          '--run-all-compositor-stages-before-draw'
-        ]
-      }
-    },
-
-    browserNoActivityTimeout: 120000,   // увеличил
-    captureTimeout: 120000,
-    pingTimeout: 15000,
-    browserDisconnectTimeout: 15000,
 
     // Continuous Integration mode
+    // if true, Karma captures browsers, runs the tests and exits
     singleRun: true,
 
     // Concurrency level
+    // how many browser should be started simultaneous
     concurrency: Infinity
   });
 }
